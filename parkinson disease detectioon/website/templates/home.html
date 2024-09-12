@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOME</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<style>
+  .header {
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{ url_for('static', filename='images/banner.jpg') }}");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+</style>
+</head>
+<body>
+    <section class="header">
+        
+        <nav>
+            <div class="logo-cell">
+            <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+            </div>
+            <div class="nav-links" id="navLinks">  
+                <i class="fa fa-close" onclick="hideMenu()"></i>
+                <ul>
+                    <h1 style="font-size: 3vw;">
+                    <b>
+                    <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login/Signup</a></li>
+                    <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                    <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                    <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+                    </b>
+                </h1>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        
+        <div class="text-box">
+            <h1>PARKINSON'S DISEASE DETECTION</h1>
+            <p>Parkinson's Disease (PD) is a chronic and progressive neurodegenerative disorder that primarily affects movement. <br/>Parkinson’s disease generally affects people who are over 60 years old.</p>
+            <a href="{{ url_for('views.about') }}" class="hero-btn">Click to know more</a>
+        </div>
+    </section>
+    
+<!---------- symptoms ----------->
+    
+    <section class="symptoms">
+      <table>
+       
+        <tr>
+        <td colspan="8" style="padding:3px 16px;">
+        <h2 style="text-align: center;" >Parkinson's Disease Symptoms</h2>
+        </td>
+        </tr>
+        <tr>
+        <td colspan="2" style="padding:20px;">
+        <img src="{{ url_for('static', filename='images/serv1.jpg') }}" style="width:350px; height: 200PX;">
+        <h4>TREMOR</h4>
+        <p style="font-size: smaller; max-width: 350px;">Have you noticed a slight shaking or tremor in your finger, thumb, hand or chin? A tremor while at rest is a common early sign of Parkinson's disease.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv2.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>SMALL HANDWRITING</h4>
+          <p style="font-size: smaller; max-width: 350px;">Has your handwriting gotten much smaller than it was in the past? You may notice the way you write words on a page has changed, such as letter sizes are smaller and the words are crowded together. A change in handwriting may be a sign of Parkinson's disease called micrographia.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv3.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>LOSS OF SMELL</h4>
+          <p style="font-size: smaller; max-width: 350px;">Have you noticed you no longer smell certain foods very well? If you seem to have more trouble smelling foods like bananas, dill pickles or licorice, you should ask your doctor about Parkinson's.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv4.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>TROUBLE SLEEPING</h4>
+          <p style="font-size: smaller; max-width: 350px;">Do you thrash around in bed or act out dreams when you are deeply asleep? Sometimes, your spouse will notice or will want to move to another bed. Sudden movements during sleep may be a sign of Parkinson's disease.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv5.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>CONSTIPATION</h4>
+          <p style="font-size: smaller; max-width: 350px;">Do you have trouble moving your bowels without straining every day? Straining to move your bowels can be an early sign of Parkinson's disease and you should talk to your doctor.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv6.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>MASKED FACE</h4>
+          <p style="font-size: smaller; max-width: 350px;">Have you been told that you have a serious, depressed or mad look on your face, even when you are not in a bad mood? This is often called facial masking. If so, you should ask your doctor about Parkinson's disease.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv7.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>DIZZINESS OR FAINTING</h4>
+          <p style="font-size: smaller; max-width: 350px;">Do you notice that you often feel dizzy when you stand up out of a chair? Feeling dizzy or fainting can be a sign of low blood pressure and can be linked to Parkinson's disease.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/serv8.jpg') }}" style="width:350px; height: 200PX;">
+          <h4>STOOPING OR HUNCHING OVER</h4>
+          <p style="font-size: smaller; max-width: 350px;">Are you not standing up as straight as you used to? If you or your family or friends notice that you seem to be stooping, leaning or slouching when you stand, it could be a sign of Parkinson's disease.</p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="8" style="padding:5px 20px;">
+          <h2>Popular Parkinson's Consulting Centers</h2>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/doc1.jpg') }}" style="width:300px; height: 150px;">
+          <h4>MAYO CLINIC (Rochester, Minnesota, US)</h4>
+          <p style="font-size: smaller; max-width: 300px;">Mayo Clinic is consistently ranked among the best hospitals in the United States and the world. They have a team of neurologists and other specialists who are experienced in diagnosing and treating Parkinson's disease.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/doc2.jpg') }}" style="width:300px; height: 150px;">
+          <h4>CLEVELAND CLINIC (Cleveland, Ohio, US)</h4>
+          <p style="font-size: smaller; max-width: 300px;">Cleveland Clinic is another top-ranked hospital that has a dedicated Parkinson's disease program. Their team offers a variety of treatments, including medication, surgery, and physical therapy.</p>
+        </td>
+        <td colspan="2" style="padding:20px;">
+          <img src="{{ url_for('static', filename='images/doc3.jpg') }}" style="width:300px; height: 150px;">
+          <h4>PARKINSON's FOUNDATION (New York City, New York, US)</h4>
+          <p style="font-size: smaller; max-width: 300px;">The Parkinson's Foundation is a nonprofit organization that provides information and support to people with Parkinson's disease.</p>
+        </td>
+      </tr>
+    </table>
+     </section>
+    
+
+
+  
+  
+<!----JavaScript for toggle menu---->
+<script>
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu() {
+        navLinks.style.right = "0";
+    }
+
+    function hideMenu() {
+        navLinks.style.right = "-200px";
+    }
+</script>     
+</body>
+</html>

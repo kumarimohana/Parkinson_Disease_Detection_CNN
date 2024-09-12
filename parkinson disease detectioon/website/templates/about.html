@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Parkinson's Disease</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .sub-header {
+  height: 25vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{ url_for('static', filename='images/background.jpg') }}");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+        
+
+        table {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0cb8b6;
+            padding: 20px 0;
+        }
+
+        .info-description {
+            font-size: 16px;
+            padding: 20px;
+        }
+
+        .info-description p {
+            margin-bottom: 15px;
+        }
+
+        .info-description ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-description ul li {
+            margin-bottom: 5px;
+        }
+
+        .info-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .additional-info {
+            text-align: center;
+            font-size: 14px;
+            padding: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <div class="logo-cell">
+                <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+            </div>
+            <div class="nav-links" id="navLinks">  
+                <i class="fa fa-close" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                    <li><a href="{{ url_for('login') }}">Login/Signup</a></li>
+                    <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                    <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                    <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+        
+    <table>
+        <tr>
+            <td colspan="2">
+                <h1>About Parkinson's Disease</h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="info-description">
+                <p>Parkinson's disease (PD) is a chronic and progressive neurodegenerative disorder that primarily affects movement. Here is some basic information about Parkinson's disease:</p>
+                <ul>
+                    <li><b>Symptoms :</b> Parkinson's disease is characterized by a variety of motor symptoms, including tremors, stiffness or rigidity in muscles, bradykinesia (slowed movement), and impaired balance and coordination. Non-motor symptoms such as cognitive changes, mood disturbances, and sleep problems may also occur.</li>
+                    <li><b>Causes :</b> The exact cause of Parkinson's disease is not fully understood, but it is believed to involve a combination of genetic and environmental factors. In Parkinson's, there is a loss of dopamine-producing neurons in a region of the brain called the substantia nigra. Dopamine is a neurotransmitter involved in regulating movement and emotional responses.</li>
+                    <li><b>Diagnosis :</b> Diagnosis of Parkinson's disease is typically based on a thorough medical history, neurological examination, and assessment of symptoms. There are currently no definitive tests for Parkinson's, so diagnosis relies on clinical judgment. Neuroimaging studies such as MRI or PET scans may be used to rule out other conditions.</li>
+                    <li><b>Treatment :</b> While there is no cure for Parkinson's disease, treatments aim to alleviate symptoms and improve quality of life. Medications such as levodopa, dopamine agonists, and MAO-B inhibitors can help manage motor symptoms by increasing dopamine levels in the brain. Physical therapy, occupational therapy, and speech therapy may also be beneficial. In advanced cases, deep brain stimulation surgery may be considered.</li>
+                </ul>
+            </td>
+            <td class="info-image">
+                <img src="{{ url_for('static', filename='images/disease.jpg') }}" alt="Parkinson's Disease Image">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="additional-info">
+                <p>Although Parkinson's disease can't be cured, medications might significantly improve your symptoms. Occasionally, your doctor may suggest surgery to regulate certain regions of your brain and improve your symptoms.</p>
+                <p>Living a healthy lifestyle and participating in regular physical activity can also help manage the symptoms of Parkinson's disease.</p>
+                <p>If you suspect you or a loved one may have Parkinson's disease, it's important to consult with a healthcare professional for proper diagnosis and treatment.</p>

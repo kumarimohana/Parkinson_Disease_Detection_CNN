@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up / Log In</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Add your custom CSS styles here */
+    /* Ensure that the CSS from the provided code snippet is retained */
+   
+.sub-header {
+          height: 25vh;
+          width: 100%;
+          background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{ url_for('static', filename='images/background.jpg') }}");
+          background-position: center;
+          background-size: cover;
+          text-align: center;
+          color: #fff;
+          position: relative;
+          overflow: hidden;
+      }
+      
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.form-container {
+  background-color: rgba(4, 9, 30, 0.7) ;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(4, 9, 30, 0.7);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-toggle button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 100px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-toggle button.active {
+  border-bottom: 2px solid #0cb8b6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid  rgba(4, 9, 30, 0.7);
+  border-radius: 4px;
+  outline: none;
+}
+
+.form-group button:hover{
+      background-color: #0cb8b6;
+    }
+
+.form button {
+  background-color: #0cb8b6;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #0cb8b6;
+}
+
+.hidden {
+  display: none;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <section class="sub-header">
+    <nav>
+      <div class="logo-cell">
+        <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+      </div>
+      <div class="nav-links" id="navLinks">  
+        <i class="fa fa-close" onclick="hideMenu()"></i>
+        <ul>
+          <h1>
+            <b>
+              <li><a href="{{ url_for('views.home') }}">Home</a></li>
+              <li><a href="{{ url_for('login') }}">Login/Signup</a></li>
+              <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+              <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+              <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+            </b>
+          </h1>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+  </section>
+
+  <!-- Sign-up/Log-in form -->
+  <div class="container">
+    <div class="form-container">
+      <div class="form-toggle">
+        <button id="logInBtn" class="active" style="color:#fff">Log In</button>
+        <button id="signUpBtn"style="color:#fff">Sign Up</button>
+      </div>
+      <form id="logInForm" class="form" action="login" method="post">
+        <input type="text" id="loginUsername" name="email" placeholder="Username/Email">
+        <input type="password" id="loginPassword" name="password" placeholder="Password">
+        <button type="submit">Log In</button>
+      </form>
+      <form id="signUpForm" class="form hidden" action="signup" method="post">
+        <input type="text" id="username" name="name" placeholder="Username">
+        <input type="email" id="email" name="email" placeholder="Email">
+        <input type="date" id="date" name="date" placeholder="date">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="password" id="confirmPassword" name="confirmpassword" placeholder="Confirm Password">
+        <a href="main.html">
+          <button type="submit">Sign Up</button>
+        </a>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript for form toggling -->
+  <script>
+    document.getElementById('logInBtn').addEventListener('click', function() {
+      document.getElementById('logInForm').classList.remove('hidden');
+      document.getElementById('signUpForm').classList.add('hidden');
+      this.classList.add('active');
+      document.getElementById('signUpBtn').classList.remove('active');
+    });
+
+    document.getElementById('signUpBtn').addEventListener('click', function() {
+      document.getElementById('signUpForm').classList.remove('hidden');
+      document.getElementById('logInForm').classList.add('hidden');
+      this.classList.add('active');
+      document.getElementById('logInBtn').classList.remove('active');
+    });
+  </script>
+</body>
+</html>

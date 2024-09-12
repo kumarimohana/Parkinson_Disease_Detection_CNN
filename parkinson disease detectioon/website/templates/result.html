@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <style>
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("{{ url_for('static', filename='images/result.jpg') }}");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #fff;
+            font-size: 22px;
+        }
+        .container button{
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .result-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+    </style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <div class="logo-cell">
+                <a href="{{ url_for('main') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+            </div>
+            <div class="nav-links" id="navLinks">  
+                <i class="fa fa-close" onclick="hideMenu()"></i>
+                <ul>
+                    <h1>
+                        <b>
+                            <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                            <li><a href="{{ url_for('upload_file') }}">Detect Disease</a></li>
+                            {% if prediction=="Parkinson" %}
+                            <li><a href="{{ url_for('suggestion_form') }}">Suggestion</a></li>
+                            {% endif %}
+                            <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                            <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                            <li><a href="{{ url_for('views.logout') }}">Logout</a></li>
+                        </b>
+                    </h1>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <h1 style="font-size: 3vw;">Prediction Result</h1>
+    </section>
+
+    <div class="container">
+        <b>
+          <p id="resultText" style="text-align: center;">
+            Prediction: {{ prediction }}
+            <br>
+            
+            <br>
+            <img class="result-image" src="{{ url_for('static', filename='uploads/' + image_file) }}"alt="Uploaded Image">
+        </p>
+        
+        </b>
+      
+    </div>
+</body>
+</html>

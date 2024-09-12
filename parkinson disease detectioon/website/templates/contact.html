@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us and About Us</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/background.jpg') }}");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .transparent-box {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Added margin to separate boxes */
+        }
+        .transparent-contact-box {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px; /* Added margin to separate boxes */
+        }
+
+        .contact-heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .about-heading {
+            font-size: 24px; /* Modified font size for caution box */
+            font-weight: bold;
+            margin-bottom: 10px; /* Adjusted margin */
+        }
+
+        .about-text {
+            font-size: 16px; /* Modified font size for caution box */
+        }
+        @media(max-width: 700px) {
+  .nav-links ul li {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    background: #0cb8b6;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: 0.5s;
+  }
+
+  .nav-links ul {
+    padding: 20px;
+  }
+
+  nav .fa {
+    display: block;
+    color: #fff;
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .text-box h1 {
+    font-size: 20px;
+  }
+        }
+        .cont {
+    max-width: 1200px;
+    margin: 50px auto 20px; /* Added 80px top margin */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<section class="sub-header">
+
+    <nav>
+        <div class="logo-cell">
+          <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-close" onclick="hideMenu()"></i>
+            <ul>
+                <h1>
+                    <b>
+                      <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                      <li><a href="{{ url_for('login') }}">Login/Signup</a></li>
+                      <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                      <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                      <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+                    </b>
+                </h1>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+
+    </nav>
+</section>
+<div class="cont">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="transparent-contact-box">
+                <div class="response-box">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel">Mobile</label>
+                            <input type="tel" class="form-control" id="tel" placeholder="Enter your Mobile no." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea class="form-control" id="message" rows="" required></textarea>
+                        </div>
+                        <button type="submit" style="background-color: #0cb8b6; color: white;width: 100px;">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="transparent-box">
+                <div class="about-heading"><b>Caution</b></div>
+                <div class="about-text">
+                    Our website provides predicted results based on research data.<br/>
+                    For precise medical concerns, please consult nearby doctors or healthcare professionals.
+                </div>
+            </div>
+            <!-- Adding a new caution box -->
+            <div class="transparent-box">
+                <div class="about-heading"><b>Contact US</b></div>
+                <div class="about-text">102-7, ABC street, Visakhapatnam, AP, INDIA<br>
+                    530040<br>Phone: (123)456-7890<br>Email: ParkinsoDiseaseHealth@gmail.com
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

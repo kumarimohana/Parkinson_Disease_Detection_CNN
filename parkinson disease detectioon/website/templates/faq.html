@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<style>
+    /* Add your custom styles here */
+    /* Body styles */
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .faq-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+    .faq {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .faq h2 {
+        color: #333;
+        font-size: bold;
+    }
+    .faq p {
+        color: #333;
+        font-size: small;
+    }
+
+    .faq-image {
+        width: 300px;
+        margin-left: 20px; /* Adjust margin as needed */
+    }
+    /* Header styles */
+    .sub-header {
+        height: 25vh;
+        width: 100%;
+        background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{ url_for('static', filename='images/background.jpg') }}");
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+   
+</style>
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <div class="logo-cell">
+                <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+            </div>
+            <div class="nav-links" id="navLinks">  
+                <i class="fa fa-close" onclick="hideMenu()"></i>
+                <ul>
+                    <h1>
+                    <b>
+                      <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                      <li><a href="{{ url_for('login') }}">Login/Signup</a></li>
+                      <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                      <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                      <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+                    </b>
+                </h1>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+    <div class="container">
+        <div class="faq-container">
+            <div class="faq">
+                <h2>What is Parkinson's disease?</h2>
+                <p>Parkinson's disease is a neurodegenerative disorder that affects movement. It develops gradually, often starting with a slight tremor in one hand. Over time, it can cause stiffness or slowing of movement.</p>
+            </div>
+            <div class="faq">
+                <h2>How is Parkinson's disease diagnosed?</h2>
+                <p>Diagnosis of Parkinson's disease involves a thorough medical history, neurological examination, and assessment of symptoms. There are no specific tests for Parkinson's, but doctors may use imaging tests like MRI or DaTscan to rule out other conditions.</p>
+            </div>
+            <div class="faq">
+                <h2>What are the early signs of Parkinson's disease?</h2>
+                <p>Diagnosis of Parkinson's disease involves a thorough medical history, neurological examination, and assessment of symptoms. There are no specific tests for Parkinson's, but doctors may use imaging tests like MRI or DaTscan to rule out other conditions.</p>
+            </div>
+            <div class="faq">
+                <h2>Can Parkinson's disease be detected before symptoms appear?</h2>
+                <p>Research is ongoing to develop methods for detecting Parkinson's disease before symptoms manifest. Some studies suggest that certain biomarkers or imaging techniques may show promise in identifying early signs of the disease.</p>
+            </div>
+            <div class="faq">
+                <h2>Is RCNN Used Clinically for Parkinson's Disease Diagnosis?</h2>
+                <p>While RCNN and similar deep learning techniques show promise in Parkinson's disease research, their clinical implementation for diagnosis is still under development. Further validation and refinement are needed before these methods can be widely adopted in clinical practice.</p>
+            </div>
+            <div class="faq">
+                <h2>What are Waves and Spiral Images in Parkinson's Disease Detection?</h2>
+                <p>Waves and spiral images refer to specific types of brain imaging data that can be used in Parkinson's disease research. These images may capture neural activity patterns or structural changes in the brain associated with Parkinson's disease progression.</p>
+            </div>
+            <div class="faq">
+                <h2>How are Waves and Spiral Images Utilized in Parkinson's Disease Detection?</h2>
+                <p>Waves and spiral images are processed using machine learning techniques, including RCNN, to extract relevant features indicative of Parkinson's disease. By analyzing these images, researchers can identify biomarkers or signatures associated with the disease, aiding in diagnosis and monitoring.</p>
+            </div>
+            <div class="faq">
+                <h2>What is the Role of AI in Parkinson's Disease Research?</h2>
+                <p>AI, including deep learning techniques like RCNN, plays a crucial role in Parkinson's disease research by enabling the analysis of large-scale imaging and clinical datasets. AI can uncover novel insights, identify disease biomarkers, and facilitate the development of more accurate diagnostic and prognostic tools.</p>
+            </div>
+            <!-- Add more FAQs as needed -->
+        </div>
+        <img src="{{ url_for('static', filename='images/faq.jpg') }}" alt="FAQ Image" class="faq-image">
+    </div>
+    <script>
+        // JavaScript for mobile menu toggle
+        function showMenu() {
+            var navLinks = document.getElementById("navLinks");
+            navLinks.style.display = "flex";
+        }
+        function hideMenu() {
+            var navLinks = document.getElementById("navLinks");
+            navLinks.style.display = "none";
+        }
+    </script>
+</body>
+</html>
