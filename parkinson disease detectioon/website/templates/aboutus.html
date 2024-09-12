@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>About US</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	<style>
+		/* Mentor Section Styles */
+.mentor-section {
+    background-color: #f5f5f5; /* Background color for the mentor section */
+    padding: 50px 0; /* Add padding to create space around the mentor section */
+}
+
+.mentor-details {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the mentor details horizontally */
+    align-items: center; /* Center the mentor details vertically */
+}
+
+.mentor-image {
+    margin-right: 20px; /* Add margin to separate the mentor image from the information */
+}
+
+.mentor-image img {
+    width: 200px; /* Set the width of the mentor image */
+    height: auto; /* Allow the height to adjust proportionally */
+    border-radius: 50%; /* Make the mentor image round */
+}
+
+.mentor-info {
+    text-align: left; /* Align the mentor information to the left */
+}
+
+.mentor-info h3 {
+    margin-bottom: 10px; /* Add margin below the mentor's name */
+}
+
+.mentor-info p {
+    margin-bottom: 5px; /* Add margin below each line of mentor information */
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+	</style>
+</head>
+<body>
+	<section class="sub-header">
+        
+        <nav>
+            <div class="logo-cell">
+            <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+
+            </div>
+            <div class="nav-links" id="navLinks">  
+                <i class="fa fa-close" onclick="hideMenu()"></i>
+                <ul>
+                    <h1>
+                    <b>
+                      
+                      <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                      <li><a href="{{ url_for('login') }}">Login/Signup</a></li>
+                      <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                      <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                      <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+                </b>
+                  </h1>
+                  </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+            
+        </nav>
+        </section>
+				<!-- Mentor Section -->
+				<section class="mentor-section">
+					<div class="mentor-details">
+							<div class="mentor-image">
+									<img src="{{ url_for('static', filename='images/suma.jpg') }}" alt="Mentor Image">
+							</div>
+							<div class="mentor-info">
+									<h3>Mr.S.SUMAHASAN</h3>
+									<p>Asst. Proffesor</p>
+									
+									<!-- Add LinkedIn or other social media links if necessary -->
+							</div>
+					</div>
+			</section>
+
+	<section class="team">
+		
+
+		<div class="team-content">
+			<div class="box">
+				<img src="{{ url_for('static', filename='images/01.jpg') }}" style="height: 300px;">
+				<h3>J Mohan Kumari</h3>
+				<h5>4th, CSE</h5>
+				<h5>20JG1A0531</h5>
+				<div class="icons">
+					<a href="https://www.linkedin.com/in/mohan-kumari-923117210"><i class="ri-linkedin-box-fill"></i></a>
+				</div>
+			</div>
+
+			<div class="box">
+				<img src="{{ url_for('static', filename='images/02.jpg') }}" style="height: 300px;">
+				<h3>Kurapati Kavya</h3>
+				<h5>4th, CSE</h5>
+				<h5>20JG1A0553</h5>
+				<div class="icons">
+					<a href="https://www.linkedin.com/in/kurapati-kavya-262813211/"><i class="ri-linkedin-box-fill"></i></a>
+				</div>
+			</div>
+
+			<div class="box">
+				<img src="{{ url_for('static', filename='images/03.png') }}" style="height: 300px;">
+				<h3>L Gopika Varshini</h3>
+				<h5>4th, CSE</h5>
+				<h5>20JGA10554</h5>
+				<div class="icons">
+					<a href="https://www.linkedin.com/in/gopikavarshinil"><i class="ri-linkedin-box-fill"></i></a>
+			
+				</div>
+			</div>
+
+			<div class="box">
+				<img src="{{ url_for('static', filename='images/04.jpg') }}" style="height: 300px;">
+				<h3>Betha.Jyoshnavi</h3>
+				<h5>4th, CSE</h5>
+				<h5>20JG1A0508</h5>
+				<div class="icons">
+					<a href="https://www.linkedin.com/in/betha-jyoshnavi-b81a72250"><i class="ri-linkedin-box-fill"></i></a>
+			
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+</body>
+</html>

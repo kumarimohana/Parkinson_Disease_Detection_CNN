@@ -1,0 +1,184 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply basic styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.info-table {
+  width: 100%;
+  text-align: center;
+}
+
+.info-column {
+  color: rgb(23, 182, 203);
+  font-size: 20px;
+}
+
+
+.logo {
+  display: block;
+  width: 100px; /* Adjust the width according to your preference */
+  height: auto;
+  border-radius: 50%;
+  border: 3px solid #0cb8b6; /* Match the border color with your navbar */
+  padding: 3px;
+}
+
+.logo-cell {
+  text-align: center;
+}
+
+.title {
+  font-size: 3vw; /* Set font size relative to viewport width */
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.title-column {
+  vertical-align: middle;
+  text-align: center; /* Center align the title */
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 5vw; /* Adjust font size for smaller screens */
+  }
+}
+
+
+/* Navigation styles */
+nav {
+  background-color: #0cb8b6; /* Background color for the navigation */
+  padding: 10px 0; /* Add padding only to the top and bottom */
+  border-radius: 10px;
+  text-align: center; /* Center the navigation items horizontally */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+
+li {
+  display: inline-block;
+  margin-right: 15px; /* Increase the margin between list items */
+}
+
+li:last-child {
+  margin-right: 0; /* Remove margin for the last list item */
+}
+
+li a {
+  display: block;
+  padding: 10px 20px; /* Add padding to the left and right */
+  text-decoration: none;
+  color: #fff; /* Text color for the navigation items */
+  font-weight: bold; /* Make the font bold */
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; /* Add transition for smoother hover effect */
+}
+
+li a:hover {
+  background-color: #079492; /* Darken the background color on hover */
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 10px;
+  }
+
+  li {
+    margin-right: 10px;
+  }
+}
+footer {
+  margin-top: 20px; /* Add some space above the footer */
+}
+body {
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.form-container {
+  background-color: #ebe1e1a8;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-toggle button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 100px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-toggle button.active {
+  border-bottom: 2px solid #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #555;
+}
+
+.hidden {
+  display: none;
+}
+a 
+{
+  text-decoration:none;
+}

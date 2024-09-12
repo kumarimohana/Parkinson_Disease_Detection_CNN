@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>Parkinson's Disease Risk Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        
+        .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .option label {
+        flex: 1;
+    }
+
+    .option input[type="radio"],
+    .option select {
+        margin-right: 10px;
+    }
+    
+    button {
+        display: block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .warning {
+        font-style: italic;
+        color: #ff0000;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    #result {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    #suggestions {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    </style>
+</head>
+<body><body>
+
+        <!-- Your navigation bar code -->
+        <section class="sub-header">
+            <nav>
+                <div class="logo-cell">
+                    <a href="{{ url_for('main') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+                </div>
+                <div class="nav-links" id="navLinks">  
+                    <i class="fa fa-close" onclick="hideMenu()"></i>
+                    <ul>
+                        <h1>
+                            <b>
+                                <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                                
+                                <li><a href="{{ url_for('views.about') }}">About Disease</a></li>
+                                <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                                <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                                <li><a href="{{ url_for('views.logout') }}">Logout</a></li>
+                            </b>
+                        </h1>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
+            <h1 style="font-size: 3vw;">Suggestion Form</h1>
+        </section>
+    <div class="container">
+        <h1>Parkinson's Disease Risk Assessment</h1>
+        <form id="parkinsonForm">
+            <div class="option">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="20" placeholder="Enter your age" required>
+            </div>
+    
+            <div class="option">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+    
+            <div class="option">
+                <label>Tremor:</label>
+                <div>
+                    <input type="radio" id="tremor-none" name="tremor" value="none" checked>
+                    <label for="tremor-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="tremor-mild" name="tremor" value="mild">
+                    <label for="tremor-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="tremor-moderate" name="tremor" value="moderate">
+                    <label for="tremor-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="tremor-severe" name="tremor" value="severe">
+                    <label for="tremor-severe">Severe</label>
+                </div>
+            </div>
+    
+            <div class="option">
+                <label>Memory Problems:</label>
+                <div>
+                    <input type="radio" id="memory-none" name="memory" value="none" checked>
+                    <label for="memory-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="memory-mild" name="memory" value="mild">
+                    <label for="memory-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="memory-moderate" name="memory" value="moderate">
+                    <label for="memory-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="memory-severe" name="memory" value="severe">
+                    <label for="memory-severe">Severe</label>
+                </div>
+            </div>
+    
+            <div class="option">
+                <label>Constipation:</label>
+                <div>
+                    <input type="radio" id="constipation-none" name="constipation" value="none" checked>
+                    <label for="constipation-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="constipation-mild" name="constipation" value="mild">
+                    <label for="constipation-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="constipation-moderate" name="constipation" value="moderate">
+                    <label for="constipation-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="constipation-severe" name="constipation" value="severe">
+                    <label for="constipation-severe">Severe</label>
+                </div>
+            </div>
+    
+            <div class="option">
+                <label>Depression:</label>
+                <div>
+                    <input type="radio" id="depression-none" name="depression" value="none" checked>
+                    <label for="depression-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="depression-mild" name="depression" value="mild">
+                    <label for="depression-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="depression-moderate" name="depression" value="moderate">
+                    <label for="depression-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="depression-severe" name="depression" value="severe">
+                    <label for="depression-severe">Severe</label>
+                </div>
+            </div>
+    
+            <div class="option">
+                <label>Hearing Loss:</label>
+                <div>
+                    <input type="radio" id="hearing-none" name="hearing" value="none" checked>
+                    <label for="hearing-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="hearing-mild" name="hearing" value="mild">
+                    <label for="hearing-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="hearing-moderate" name="hearing" value="moderate">
+                    <label for="hearing-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="hearing-severe" name="hearing" value="severe">
+                    <label for="hearing-severe">Severe</label>
+                </div>
+            </div>
+            <div class="option">
+                <label>Loss of Smell:</label>
+                <div>
+                    <input type="radio" id="lossOfSmell-none" name="lossOfSmell" value="none" checked>
+                    <label for="lossOfSmell-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="lossOfSmell-mild" name="lossOfSmell" value="mild">
+                    <label for="lossOfSmell-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="lossOfSmell-moderate" name="lossOfSmell" value="moderate">
+                    <label for="lossOfSmell-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="lossOfSmell-severe" name="lossOfSmell" value="severe">
+                    <label for="lossOfSmell-severe">Severe</label>
+                </div>
+            </div>
+            <div class="option">
+                <label>shaking:</label>
+                <div>
+                    <input type="radio" id="shaking-none" name="shaking" value="none" checked>
+                    <label for="shaking-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="shaking-mild" name="shaking" value="mild">
+                    <label for="shaking-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="shaking-moderate" name="shaking" value="moderate">
+                    <label for="shaking-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="shaking-severe" name="shaking" value="severe">
+                    <label for="shaking-severe">Severe</label>
+                </div>
+            </div>
+            <div class="option">
+                <label>Dizziness:</label>
+                <div>
+                    <input type="radio" id="dizziness-none" name="dizziness" value="none" checked>
+                    <label for="dizziness-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="dizziness-mild" name="dizziness" value="mild">
+                    <label for="dizziness-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="dizziness-moderate" name="dizziness" value="moderate">
+                    <label for="dizziness-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="dizziness-severe" name="dizziness" value="severe">
+                    <label for="dizziness-severe">Severe</label>
+                </div>
+            </div>
+
+            <div class="option">
+                <label>Fainting:</label>
+                <div>
+                    <input type="radio" id="fainting-none" name="fainting" value="none" checked>
+                    <label for="fainting-none">None</label>
+                </div>
+                <div>
+                    <input type="radio" id="fainting-mild" name="fainting" value="mild">
+                    <label for="fainting-mild">Mild</label>
+                </div>
+                <div>
+                    <input type="radio" id="fainting-moderate" name="fainting" value="moderate">
+                    <label for="fainting-moderate">Moderate</label>
+                </div>
+                <div>
+                    <input type="radio" id="fainting-severe" name="fainting" value="severe">
+                    <label for="fainting-severe">Severe</label>
+                </div>
+            </div>
+
+    
+            <button type="button" onclick="assessRisk()">Assess Risk</button>
+            <div id="result" class="warning"></div>
+            <div id="suggestions"></div>
+            <div class="warning">Note: Parkinson's disease risk increases with age, especially after 45 years old.</div>
+        </form>
+    </div>
+
+    <script>
+    function assessRisk() {
+    // Fetch form data
+    const age = parseInt(document.getElementById("age").value);
+    const gender = document.getElementById("gender").value;
+    const tremor = document.querySelector('input[name="tremor"]:checked').value;
+    const shaking = document.querySelector('input[name="shaking"]:checked').value;
+    const memory = document.querySelector('input[name="memory"]:checked').value;
+    const constipation = document.querySelector('input[name="constipation"]:checked').value;
+    const depression = document.querySelector('input[name="depression"]:checked').value;
+    const hearing = document.querySelector('input[name="hearing"]:checked').value;
+    const lossOfSmell = document.querySelector('input[name="lossOfSmell"]:checked').value;
+    const dizziness = document.querySelector('input[name="dizziness"]:checked').value;
+    const fainting = document.querySelector('input[name="fainting"]:checked').value;
+
+    // Perform risk assessment based on collected data
+    let riskScore = 0;
+    if (age >= 45) {
+        riskScore += 2; // Higher risk for age 45 and above
+    }
+    if (tremor !== "none") {
+        riskScore += 3; // Tremor is a significant risk factor
+    }
+    if (shaking !== "none") {
+        riskScore += 2; // Shaking is a significant risk factor
+    }
+    if (memory !== "none") {
+        riskScore += 2; // Memory problems are a strong indicator
+    }
+    if (constipation !== "none") {
+        riskScore += 1; // Constipation is an associated symptom
+    }
+    if (depression !== "none") {
+        riskScore += 1; // Depression is an associated symptom
+    }
+    if (hearing !== "none") {
+        riskScore += 1; // Hearing loss is an associated symptom
+    }
+    if (lossOfSmell !== "none") {
+        riskScore += 2; // Loss of smell is a significant risk factor
+    }
+    if (dizziness !== "none") {
+        riskScore += 1; // Dizziness is an associated symptom
+    }
+    if (fainting !== "none") {
+        riskScore += 2; // Fainting is a significant risk factor
+    }
+
+    let riskMessage;
+    if (riskScore >= 8) {
+        riskMessage = "Your risk of Parkinson's disease is high. Please consult a healthcare professional for further evaluation.";
+    } else if (riskScore >= 5) {
+        riskMessage = "Your risk of Parkinson's disease is moderate. It is advisable to monitor your symptoms and consult a healthcare professional if they persist or worsen.";
+    } else {
+        riskMessage = "Your risk of Parkinson's disease is low based on the provided information. However, it's essential to stay vigilant and consult a healthcare professional if you experience any concerning symptoms.";
+    }
+
+    // Display the risk assessment result
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerText = riskMessage;
+
+    // Provide suggestions based on risk assessment
+    let suggestions = "";
+    if (riskScore >= 5) {
+        suggestions = "It's advisable to consult with a healthcare professional for further evaluation and appropriate management. Early detection and treatment can help improve outcomes.";
+    } else {
+        suggestions = "Your risk of Parkinson's disease is low. However, it's important to monitor any changes in symptoms and consult with a healthcare professional if you experience any concerns or new symptoms.";
+    }
+
+    // Display suggestions
+    const suggestionsDiv = document.getElementById("suggestions");
+    suggestionsDiv.innerText = suggestions;
+}
+    </script>
+    
+</body>
+</html>

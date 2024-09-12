@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <style>
+    /* Add the provided CSS styles here */
+    body {
+      background-image: url(https://wallpapercave.com/wp/wp8003033.jpg);
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #e8e0e0a0;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 3%;
+    }
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      margin-top: -3%;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .nav-bar a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .form-group button, .nav-bar {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .sub-header {
+          height: 25vh;
+          width: 100%;
+          background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("{{ url_for('static', filename='images/background.jpg') }}");
+          background-position: center;
+          background-size: cover;
+          text-align: center;
+          color: #fff;
+          position: relative;
+          overflow: hidden;
+      }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <section class="sub-header">
+  <nav>
+      <div class="logo-cell">
+          <a href="{{ url_for('views.home') }}"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo"></a>
+      </div>
+      <div class="nav-links" id="navLinks">  
+          <i class="fa fa-close" onclick="hideMenu()"></i>
+          <ul>
+              <h1>
+                  <b>
+                      <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                      
+                      <li><a href="{{ url_for('views.faq') }}">FAQ's</a></li>
+                      <li><a href="{{ url_for('views.contact') }}">Contact Us</a></li>
+                      <li><a href="{{ url_for('views.aboutus') }}">About Us</a></li>
+                      <li><a href="{{ url_for('views.logout') }}">Logout</a></li>
+                  </b>
+              </h1>
+          </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+  </nav>
+</section>
+<br/>
+<br/>
+
+  <h1>HEALTH DETAILS</h1>
+  <div class="container">
+    <b>
+      <div class="form-cont">
+        <form id="healthForm" method="post" action="main">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phonenumber" pattern="[0-9]{10}" required>
+          </div>
+          <div class="form-group">
+            <label for="bloodPressure">Blood Pressure:</label>
+            <input type="text" id="bloodPressure" name="bloodPressure">
+          </div>
+          <div class="form-group">
+            <label for="bloodSugar">Blood Sugar Levels:</label>
+            <input type="text" id="bloodSugar" name="bloodSugar">
+          </div>
+          <div class="form-group">
+            <label for="healthHistory">Health History:</label>
+            <input type="text" id="healthHistory" name="healthHistory">
+          </div>
+          <div class="form-group">
+            <a href="views.upload">
+              <button type="submit">Next</button>
+            </a>
+          </div>
+        </form>
+      </div>
+    </b>
+  </div>
+</body>
+</html>
